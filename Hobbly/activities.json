@@ -1,0 +1,38 @@
+[
+    {
+        "id": "EF1CC5BB-4785-4D8E-AB98-5FA4E00B6A66",
+        "name": "Cooking",
+        "activities": [
+            {
+            "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+            "name": "Baking at KAF",
+            "price": 50,
+            "description": "lets make cake, cookies and bread"
+        },
+        {
+            "id": "36A7CC40-18C1-48E5-BCD8-3B42D43BEAEE",
+            "name": "make cookies",
+            "price": 0,
+            "description": "lets make cookies"
+        }
+    ]
+},
+{
+    "id": "3D97FAB4-50AC-40FC-9BF0-3F46BB6A92F5",
+    "name": "Outdoors",
+    "activities": [
+    {
+        "id": "D44AAEBC-BF4F-42CD-8C37-0FEF772A5B69",
+        "name": "Hiking Cardigan",
+        "price": 0,
+        "description": "yay"
+    },
+    {
+        "id": "2BAD20C5-D007-4BBE-B074-8CF0F256A42F",
+        "name": "Gile",
+        "price": 0,
+        "description": "easy"
+    }
+    ]
+}
+]
