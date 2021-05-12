@@ -58,6 +58,8 @@ struct MenuContent: View {
 
 struct SideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        MenuContent()
+        NavigationView {
+            MenuContent()
+        }
     }
 }

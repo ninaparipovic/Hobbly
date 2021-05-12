@@ -16,6 +16,8 @@ struct ContentView: View {
     @State var menuOpen: Bool = false
     
     let tabBarImageNames = ["house.fill", "person.2.fill", "plus.circle", "magnifyingglass", "person.fill"]
+    let tabBarNames = ["Home", "Community", "Add", "Search", "Profile"]
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -47,12 +49,15 @@ struct ContentView: View {
                     }
                 case 1:
                     NavigationView {
-                        Text("another tab!")
-                            .navigationBarItems(leading:
-                                                    Button("Hours") {
-                                                        print("Hours tapped!")
-                                                    }
-                            )
+                        CommunityView()
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true)
+                    }
+                case 3:
+                    NavigationView {
+                        SearchView()
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true)
                     }
                 default:
                     NavigationView {
@@ -65,26 +70,35 @@ struct ContentView: View {
                 .padding(.bottom, 12)
             HStack {
                 ForEach(0..<tabBarImageNames.count) { num in
-                    Button(action: {
-                        if (num == 2) {
-                            addModal.toggle()
-                            // why do you need to return?
-                            return
+                    VStack {
+                        Button(action: {
+                            if (num == 2) {
+                                addModal.toggle()
+                                // why do you need to return?
+                                return
+                            }
+                            selectedIndex = num
+                        }, label: {
+                            Spacer()
+                            if num == 2 {
+                                Image(systemName: tabBarImageNames[num])
+                                    .font(.system(size: 40, weight: .bold))
+                                    .foregroundColor(.orange)
+                            } else {
+                                Image(systemName: tabBarImageNames[num])
+                                    .font(.system(size: 26, weight: .bold))
+                                    .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
+                                
+                            }
+                            
+                            Spacer()
+                        })
+                        if (num != 2) {
+                            Text("\(tabBarNames[num])")
+                                .font(.system(size: 12, weight: .light))
                         }
-                        selectedIndex = num
-                    }, label: {
-                        Spacer()
-                        if num == 2 {
-                            Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 40, weight: .bold))
-                                .foregroundColor(.orange)
-                        } else {
-                            Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 26, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.8))
-                        }
-                        Spacer()
-                    })
+                    }
+                   
                     
                 }
             }
